@@ -3,11 +3,11 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <button class="delete-button" @click="$emit('close')"><i class="fa fa-close"></i></button>
-        <form @submit="$emit('close')">
-          First name<input type="text" required><br>
-          Last name<input type="text" required><br>
-          Phone number<input type="text" required><br>
-          Address<input type="text" required><br>
+        <form @submit.prevent="placeOrder()">
+          First name<input type="text" required v-model="first_name"><br>
+          Last name<input type="text" required v-model="last_name"><br>
+          Phone number<input type="text" required v-model="phone_number"><br>
+          Address<input type="text" required v-model="address"><br>
           <input type="submit" value="SUBMIT">
         </form>
       </div>
@@ -16,8 +16,31 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'OrderForm',
+  data() {
+    return {
+      first_name: '',
+      last_name: '',
+      phone_number: '',
+      address: '',
+    };
+  },
+  methods: {
+    placeOrder() {
+      const body = {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        phone_number: this.phone_number,
+        address: this.address,
+        ...this.$store.state,
+      };
+      axios.post('/api/place_order', body);
+      this.$emit('close');
+    },
+  },
 };
 </script>
 

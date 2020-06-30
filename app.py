@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify, send_file, request
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist/static')
@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='dist/static')
 CORS(app)
 
 
-@app.route('/api/pizzas')
+@app.route('/api/pizzas', methods=['GET'])
 def pizzas():
     return jsonify({
         'pizzas': [
@@ -37,3 +37,10 @@ def pizzas():
 def index():
     vuejs_html = '/app/dist/index.html'
     return send_file(vuejs_html)
+
+
+@app.route('/api/place_order', methods=['POST'])
+def place_order():
+    from pprint import pprint
+    pprint(request.json)
+    return jsonify({})
