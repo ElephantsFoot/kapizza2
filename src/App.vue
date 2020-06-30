@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Os/>
+    <cart></cart>
+    <kapizza-menu></kapizza-menu>
   </div>
 </template>
 
 <script>
-import Os from './components/Server_os.vue';
+import Cart from './components/Cart';
+import KapizzaMenu from './components/KapizzaMenu';
 
 export default {
-  name: 'App',
   components: {
-    Os,
+    Cart, KapizzaMenu,
+  },
+
+  name: 'app',
+
+  data() {
   },
 };
 </script>
+
+<style>
+</style>
