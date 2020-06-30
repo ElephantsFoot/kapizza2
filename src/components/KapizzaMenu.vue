@@ -10,7 +10,7 @@
       <button @click="addToCart(p)">
         ADD TO CART
       </button>
-      {{p.price}}₽
+      {{p.price}}$
     </div>
   </div>
 </template>

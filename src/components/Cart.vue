@@ -8,7 +8,7 @@
             <div class="cart-item">{{key}}</div>
             <div class="amount">
               <button :disabled="sub_is_disabled[index]" @click="subOne(key)">-</button>
-              x{{value}}
+              x{{value.amount}}
               <button @click="addOne(key)">+</button>
               <button class="delete-button" @click="removeFromCart(key)"><i class="fa fa-close"></i>
               </button>
@@ -16,6 +16,13 @@
           </div>
         </li>
       </ul>
+      <hr>
+      <div class="cart-item-container">
+        <div class="cart-item">Total:</div>
+        <div class="amount">
+          {{ total }}$
+        </div>
+      </div>
       <br>
       <button @click="showModal = true">
         ORDER NOW
@@ -52,11 +59,20 @@ export default {
       const keys = Object.keys(cart);
 
       return keys.map((item) => {
-        if (cart[item] > 1) {
+        if (cart[item].amount > 1) {
           return false;
         }
         return 'disabled';
       });
+    },
+
+    total() {
+      const { cart } = this.$store.state;
+      let total = 0;
+      Object.keys(cart).forEach((key) => {
+        total += cart[key].price * cart[key].amount;
+      });
+      return total;
     },
   },
 

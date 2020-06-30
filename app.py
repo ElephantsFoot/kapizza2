@@ -14,19 +14,19 @@ def pizzas():
             {
                 'name': 'Pepperoni',
                 'img_url': 'pepperoni',
-                'price': '399',
+                'price': 14.99,
                 'description': 'American classic with spicy pepperoni, Mozzarella and signature tomato sauce',
             },
             {
                 'name': 'Margherita',
                 'img_url': 'margherita',
-                'price': '299',
+                'price': 13.99,
                 'description': 'Traditional recipe with signature tomato sauce, Mozzarella, oregano and juicy tomatoes',
             },
             {
                 'name': 'Four cheeses',
                 'img_url': '4cheeses',
-                'price': '299',
+                'price': 11.99,
                 'description': 'Traditional blend of cheeses: Mozzarella, soft fresh cheese, blue cheese, Reggianito with signature tomato sauce and spicy oregano',
             },
         ]
