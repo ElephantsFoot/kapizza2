@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import OrderForm from './OrderForm'
+import OrderForm from './OrderForm';
 
 export default {
   components: {
