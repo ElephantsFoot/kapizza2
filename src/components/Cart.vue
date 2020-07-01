@@ -15,19 +15,29 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="cart-item-container"  style="color: gray">
+            <div class="cart-item">
+              Delivery
+            </div>
+            <div class="amount">
+              {{ delivery_price }}$
+            </div>
+          </div>
+        </li>
       </ul>
       <hr>
       <div class="cart-item-container">
         <div class="cart-item">
           Total in
-            <label>
-              <input type="radio" name="currency" value="USD" v-model="currency" checked>
-              USD
-            </label>
-            <label>
-              <input type="radio" name="currency" value="EUR" v-model="currency">
-              EUR
-            </label>
+          <label>
+            <input type="radio" name="currency" value="USD" v-model="currency" checked>
+            USD
+          </label>
+          <label>
+            <input type="radio" name="currency" value="EUR" v-model="currency">
+            EUR
+          </label>
           :
         </div>
         <div class="amount">
@@ -65,6 +75,7 @@ export default {
       showModal: false,
       currency: 'USD',
       eurToUsd: 0,
+      delivery_price: 5,
     };
   },
 
@@ -91,6 +102,7 @@ export default {
       Object.keys(cart).forEach((key) => {
         total += cart[key].price * cart[key].amount;
       });
+      total += this.delivery_price;
       return total.toFixed(2);
     },
 
