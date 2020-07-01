@@ -18,9 +18,25 @@
       </ul>
       <hr>
       <div class="cart-item-container">
-        <div class="cart-item">Total:</div>
+        <div class="cart-item">
+          Total in
+            <label>
+              <input type="radio" name="currency" value="USD" v-model="currency" checked>
+              USD
+            </label>
+            <label>
+              <input type="radio" name="currency" value="EUR" v-model="currency">
+              EUR
+            </label>
+          :
+        </div>
         <div class="amount">
-          {{ total }}$
+          <div v-if="currency === 'USD'">
+            {{ total }}$
+          </div>
+          <div v-else>
+            {{ total_in_euros }}€
+          </div>
         </div>
       </div>
       <br>
@@ -36,6 +52,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import OrderForm from './OrderForm';
 
 export default {
@@ -46,6 +63,8 @@ export default {
   data() {
     return {
       showModal: false,
+      currency: 'USD',
+      eurToUsd: 0,
     };
   },
 
@@ -72,8 +91,13 @@ export default {
       Object.keys(cart).forEach((key) => {
         total += cart[key].price * cart[key].amount;
       });
-      return total;
+      return total.toFixed(2);
     },
+
+    total_in_euros() {
+      return (this.total * this.eurToUsd).toFixed(2);
+    },
+
   },
 
   methods: {
@@ -89,7 +113,11 @@ export default {
     removeFromCart(item) {
       this.$store.commit('removeFromCart', item);
     },
-
+  },
+  created() {
+    axios.get('https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR').then((r) => {
+      this.eurToUsd = r.data.rates.EUR;
+    });
   },
 
 };
