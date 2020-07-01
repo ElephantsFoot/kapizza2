@@ -2,14 +2,21 @@
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
-        <button class="delete-button" @click="$emit('close')"><i class="fa fa-close"></i></button>
-        <form @submit.prevent="placeOrder()">
-          First name<input type="text" required v-model="first_name"><br>
-          Last name<input type="text" required v-model="last_name"><br>
-          Phone number<input type="text" required v-model="phone_number"><br>
-          Address<input type="text" required v-model="address"><br>
-          <input type="submit" value="SUBMIT">
-        </form>
+        <div v-if="submitted" class="submitted">
+          <i class="fa fa-check fa-4x"></i>
+          <p>Thank you for your order!<br> We will call you soon.</p>
+          <button @click="successExit()">Got it</button>
+        </div>
+        <div v-else>
+          <button class="delete-button" @click="$emit('close')"><i class="fa fa-close"></i></button>
+          <form @submit.prevent="placeOrder()">
+            First name<input type="text" required v-model="first_name"><br>
+            Last name<input type="text" required v-model="last_name"><br>
+            Phone number<input type="text" required v-model="phone_number"><br>
+            Address<input type="text" required v-model="address"><br>
+            <input type="submit" value="SUBMIT">
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -26,6 +33,7 @@ export default {
       last_name: '',
       phone_number: '',
       address: '',
+      submitted: false,
     };
   },
   methods: {
@@ -38,6 +46,11 @@ export default {
         ...this.$store.state,
       };
       axios.post('/api/place_order', body);
+      this.submitted = true;
+    },
+
+    successExit() {
+      this.$store.commit('clearCart');
       this.$emit('close');
     },
   },
@@ -71,9 +84,18 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
   }
 
   .delete-button {
     float: right;
+  }
+
+  .fa-check{
+    color: green;
+  }
+
+  .submitted{
+    text-align: center;
   }
 </style>

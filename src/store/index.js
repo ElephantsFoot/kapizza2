@@ -26,5 +26,8 @@ export const store = new Vuex.Store({
     removeFromCart(state, cartItem) {
       Vue.delete(state.cart, cartItem);
     },
+    clearCart(state) {
+      Vue.set(state, 'cart', {});
+    },
   },
 });
