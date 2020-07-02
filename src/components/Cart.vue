@@ -137,7 +137,7 @@ export default {
 <style>
 
   #cart {
-    width: 250px;
+    width: 300px;
     position: fixed;
     right: 10px;
     top: 20%;

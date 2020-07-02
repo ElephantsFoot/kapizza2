@@ -3,8 +3,10 @@ node_modules
 /dist
 
 # local env files
+.env
 .env.local
 .env.*.local
+.flaskenv
 
 # Log files
 npm-debug.log*
@@ -20,3 +22,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+/flask_kapizza2/db.sqlite3
