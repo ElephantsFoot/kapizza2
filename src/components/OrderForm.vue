@@ -10,10 +10,14 @@
         <div v-else>
           <button class="delete-button" @click="$emit('close')"><i class="fa fa-close"></i></button>
           <form @submit.prevent="placeOrder()">
-            First name<input type="text" required v-model="first_name"><br>
-            Last name<input type="text" required v-model="last_name"><br>
-            Phone number<input type="text" required v-model="phone_number"><br>
-            Address<input type="text" required v-model="address"><br>
+            <label>First name</label>
+            <input name="first_name" type="text" required v-model="first_name">
+            <label>Last name</label>
+            <input type="text" required v-model="last_name">
+            <label>Phone number</label>
+            <input type="text" required v-model="phone_number">
+            <label>Address</label>
+            <input type="text" required v-model="address">
             <input class="order-button" type="submit" value="SUBMIT">
           </form>
         </div>
@@ -91,11 +95,32 @@ export default {
     float: right;
   }
 
-  .fa-check{
+  .fa-check {
     color: green;
   }
 
-  .submitted{
+  .submitted {
     text-align: center;
+  }
+
+  input[type=text] {
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    font-size: 14px;
+  }
+
+  input:focus {
+    border: 1px solid #329e5e;
+  }
+
+  label {
+    display: block;
   }
 </style>
