@@ -13,6 +13,18 @@
     <main>
       <kapizza-menu></kapizza-menu>
     </main>
+    <footer>
+      <p>Made by Elisha Damsker&ensp;
+        <a href="https://github.com/ElephantsFoot/kapizza2">
+          <i class="fa fa-github fa-lg">
+          </i>
+        </a>&ensp;
+        <a href="mailto:el.damsker@gmail.com">
+          <i class="fa fa-at fa-lg">
+          </i>
+        </a>
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -46,6 +58,14 @@ export default {
     font-size: 20px;
   }
 
+  footer {
+    padding: 10px;
+    text-align: center;
+    background: darkslategray;
+    color: white;
+    font-size: 14px;
+  }
+
   .header-content {
     display: table;
     width: 100%;
@@ -76,7 +96,7 @@ export default {
     width: 33%;
   }
 
-  main{
+  main {
     margin: 0 auto;
     width: 1000px;
   }
