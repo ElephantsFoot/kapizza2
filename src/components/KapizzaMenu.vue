@@ -6,11 +6,12 @@
       <div class="description">
         {{p.description}}
       </div>
-      <br>
+      <p class="order-block">
       <button class="order-button" @click="addToCart(p)">
         ADD TO CART
       </button>
       {{p.price}}$
+      </p>
     </div>
   </div>
 </template>
@@ -59,6 +60,7 @@ export default {
   }
 
   .pizza {
+    position: relative;
     border: 1px solid black;
     margin: 10px;
     width: 400px;
@@ -82,5 +84,10 @@ export default {
 
   .order-button:hover {
     background: darkred;
+  }
+
+  .order-block{
+    position: absolute;
+    bottom: 0;
   }
 </style>

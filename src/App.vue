@@ -9,10 +9,10 @@
         </div>
       </div>
     </header>
-    <cart></cart>
     <main>
       <kapizza-menu></kapizza-menu>
     </main>
+    <cart></cart>
     <footer>
       <p>Made by Elisha Damsker&ensp;
         <a href="https://github.com/ElephantsFoot/kapizza2">
