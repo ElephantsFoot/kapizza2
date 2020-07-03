@@ -62,7 +62,11 @@ export default {
     border: 1px solid black;
     margin: 10px;
     width: 400px;
+    max-height: 350px;
+    height: 350px;
     text-align: left;
     padding: 10px;
+    display: inline-block;
+    vertical-align:top;
   }
 </style>

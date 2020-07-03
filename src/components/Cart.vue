@@ -140,7 +140,7 @@ export default {
     width: 300px;
     position: fixed;
     right: 10px;
-    top: 20%;
+    top: 25%;
     padding: 10px;
     background: #ffe;
     border: 1px solid #333;

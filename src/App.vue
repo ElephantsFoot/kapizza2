@@ -1,13 +1,26 @@
 <template>
   <div id="app">
+    <header>
+      <div class="header-content">
+        <div class="header-row">
+          <img class="header-picture" :src="kapizzaImg" alt="science" style="float: left">
+          <h1 class="company-name"> KaPizza</h1>
+          <p class="motto"><i>We deliver even to the freakin' moon</i></p>
+        </div>
+      </div>
+    </header>
     <cart></cart>
-    <kapizza-menu></kapizza-menu>
+    <main>
+      <kapizza-menu></kapizza-menu>
+    </main>
   </div>
 </template>
 
 <script>
 import Cart from './components/Cart';
 import KapizzaMenu from './components/KapizzaMenu';
+
+const kapizzaImg = require('./assets/kapizza_header.jpg');
 
 export default {
   components: {
@@ -17,9 +30,54 @@ export default {
   name: 'app',
 
   data() {
+    return {
+      kapizzaImg,
+    };
   },
 };
 </script>
 
 <style>
+  header {
+    padding: 10px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+  }
+
+  .header-content {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header-row {
+    display: table-row;
+  }
+
+  .header-picture {
+    display: table-cell;
+    vertical-align: middle;
+    width: 33%;
+  }
+
+  .company-name {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 33%;
+  }
+
+  .motto {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 33%;
+  }
+
+  main{
+    margin: 0 auto;
+    width: 1000px;
+  }
 </style>
