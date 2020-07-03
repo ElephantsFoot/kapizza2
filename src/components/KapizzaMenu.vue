@@ -7,7 +7,7 @@
         {{p.description}}
       </div>
       <br>
-      <button @click="addToCart(p)">
+      <button class="order-button" @click="addToCart(p)">
         ADD TO CART
       </button>
       {{p.price}}$
@@ -62,11 +62,25 @@ export default {
     border: 1px solid black;
     margin: 10px;
     width: 400px;
-    max-height: 350px;
-    height: 350px;
+    max-height: 370px;
+    height: 370px;
     text-align: left;
     padding: 10px;
     display: inline-block;
     vertical-align:top;
+  }
+
+  .order-button {
+    background: red;
+    color: white;
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    font-weight: 800;
+    font-size: 12px;
+  }
+
+  .order-button:hover {
+    background: darkred;
   }
 </style>

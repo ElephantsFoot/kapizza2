@@ -50,7 +50,7 @@
         </div>
       </div>
       <br>
-      <button @click="showModal = true">
+      <button class="order-button" @click="showModal = true">
         ORDER NOW
       </button>
       <order-form v-if="showModal" @close="showModal = false">

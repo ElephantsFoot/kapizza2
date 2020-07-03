@@ -14,7 +14,7 @@
             Last name<input type="text" required v-model="last_name"><br>
             Phone number<input type="text" required v-model="phone_number"><br>
             Address<input type="text" required v-model="address"><br>
-            <input type="submit" value="SUBMIT">
+            <input class="order-button" type="submit" value="SUBMIT">
           </form>
         </div>
       </div>
