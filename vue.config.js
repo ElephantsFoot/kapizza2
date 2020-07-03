@@ -1,6 +1,7 @@
 module.exports = {
-  assetsDir: 'static',
-  outputDir: 'dist',
+  assetsDir: '',
+  outputDir: 'flask_kapizza2/static',
+  publicPath: '/static/',
   devServer: {
     proxy: {
       '^/*': {
